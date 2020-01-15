@@ -1,0 +1,81 @@
+.hidden {
+    display: none;
+  }
+
+html {
+padding: 0;
+margin: 0;
+font-family: 'Titillium Web', sans-serif;
+}
+
+body {
+background-color: #161616;
+background-image: url(https://ak3.picdn.net/shutterstock/videos/19625323/thumb/1.jpg);
+background-size: 1500px 1500px;
+font-size: 14px;
+color: #cccccc;
+padding: 0;
+margin: 0;
+margin-top: 20px;
+}
+
+h1 {
+font-size:  18px;
+background-color: darkcyan;
+border-style: dotted;
+border-color: darkorchid;
+margin-left:auto;
+margin-right:auto;
+width: 650px;
+}
+
+a:link, a:visited, a:hover, a:active {
+color: #cccccc;
+border-bottom: 1px solid #cccccc;
+padding-bottom: 1px;
+text-decoration: none;
+}
+
+.border {
+border: 1px solid #cccccc;
+float: left;
+margin: 5px;
+padding: 1px;
+}
+
+.center {
+text-align: center;
+}
+
+.color {
+display: block;
+height: 130px;
+width: 130px;
+}
+
+.colorcontainer {
+margin: 0 auto;
+}
+
+.colorname {
+display: block;
+text-align: center;
+padding: 5px 0;
+}
+
+#submit {
+  margin-top: 5px;
+}
+
+#main {
+  background-color: darkcyan;
+  position: relative;
+  /* left: 350px;
+  right: 350px; */
+  /* margin-right: 50px; */
+  width: 650px;
+  border-style: dotted;
+  border-color: darkorchid;
+  margin-left:auto;
+  margin-right:auto;
+}

@@ -1,16 +1,28 @@
-// IMPORT MODULES under test here:
-// import example from '../src/example.js';
+import compareNumbers from '../compareNumbers.js';
 
 const test = QUnit.test;
 
-test('time to test a function', function(assert) {
-    //Arrange
-    // Set up your parameters and expectations
+test('Testing if number is identical', function(assert) {
+    const shouldBeIdenticalInput = 7;
+    const shouldBeIdenticalExpected = 0;
+    const shouldBeIdenticalResult = compareNumbers(shouldBeIdenticalInput, 7);
+    assert.equal(shouldBeIdenticalResult, shouldBeIdenticalExpected);
+});
 
-    //Act 
-    // Call the function you're testing and set the result to a const
+test('Testing if number is too low', function(assert) {
+    const shouldBeLowInput = 7;
+    const shouldBeLowExpected = -1;
+    const shouldBeLowResult = compareNumbers(shouldBeLowInput, 8);
+    assert.equal(shouldBeLowResult, shouldBeLowExpected);
+});
 
-    //Assert
-    // Make assertions about what is expected valid result
-    assert.equal(true, false);
+test('Testing if number is too high', function(assert) {
+    const shouldBeHighInput = 7;
+    const shouldBeHighExpected = 1;
+    const shouldBeHighResult = compareNumbers(shouldBeHighInput, 6);
+    assert.equal(shouldBeHighResult, shouldBeHighExpected);
+});
+
+test('Testing if user input is valid', function(assert) {
+    assert.throws(compareNumbers, Error);
 });

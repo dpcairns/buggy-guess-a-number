@@ -11,7 +11,7 @@ const triesDisplay = document.getElementById('tries-display');
 let tries = 4;
 
 // random number math from danny's slack post
-let correctNumber = Math.floor(Math.random() * 20);
+let correctNumber = Math.ceil(Math.random() * 20);
 
 submit.addEventListener('click', () => {
     tries--;
@@ -33,7 +33,9 @@ submit.addEventListener('click', () => {
         resultContainer.classList.remove('hidden');
         submit.disabled = true;
         resultDisplay.textContent = 'won, great job!';
-        document.getElementById('display-number').innerHTML = correctNumber;
+        // document.getElementById('display-number').innerHTML = correctNumber;
+        let correctNumberDisplay = document.getElementById('display-number');
+        correctNumberDisplay.textContent = correctNumber;
     }
 
     if (tries === 0 && compareNumbers(Number(input.value), correctNumber) !== 0) {
@@ -41,5 +43,8 @@ submit.addEventListener('click', () => {
         resultContainer.classList.remove('hidden');
         resultDisplay.textContent = 'lost, bummer!';
         document.getElementById('display-number').innerHTML = correctNumber;
+        // another way to do the same as above (display number in index.html):
+        // let correctNumberDisplay = document.getElementById('display-number');
+        // correctNumberDisplay.textContent = correctNumber;
     }
 });

@@ -1,17 +1,15 @@
-import compareNumbers from './compareNumbers.js';
+import compareNumbers from './compare-numbers.js';
 
-const input = document.getElementById('enter-guess');
-const submit = document.getElementById('submit');
+const inputEl = document.getElementById('enter-guess');
 const tempContainer = document.getElementById('temp-container');
 const resultContainer = document.getElementById('result-container');
-const tempDisplay = document.getElementById('temp-display');
+const temporaryDisplay = document.getElementById('temp-display');
 const resultDisplay = document.getElementById('result-display');
 const triesDisplay = document.getElementById('tries-display');
 
 let tries = 4;
 
-// random number math from danny's slack post
-let correctNumber = Math.ceil(Math.random() * 20);
+let correctNumber = Math.ceil(Math.random());
 
 submit.addEventListener('click', () => {
     tries--;
@@ -19,18 +17,18 @@ submit.addEventListener('click', () => {
 
     if (compareNumbers(Number(input.value), correctNumber) === -1) {
         tempDisplay.textContent = 'too low';
-        tempContainer.classList.remove('hidden');
+        tempContainer.classList.remove('hidden-item');
     }
 
-    if (compareNumbers(Number(input.value), correctNumber) === 1) {
+    if (compareNumbers(correctNumber, Number(input.value)) === 1) {
         tempDisplay.textContent = 'too high';
-        tempContainer.classList.remove('hidden');
+        tempContainer.classList.remove('hidden-item');
     }
 
     if (compareNumbers(Number(input.value), correctNumber) === 0) {
         tempDisplay.textContent = 'correct!';
-        tempContainer.classList.remove('hidden');
-        resultContainer.classList.remove('hidden');
+        tempContainer.classList.remove('hidden-item');
+        resultContainer.classList.remove('hidden-item');
         submit.disabled = true;
         resultDisplay.textContent = 'won, great job!';
         // document.getElementById('display-number').innerHTML = correctNumber;
@@ -38,9 +36,9 @@ submit.addEventListener('click', () => {
         correctNumberDisplay.textContent = correctNumber;
     }
 
-    if (tries === 0 && compareNumbers(Number(input.value), correctNumber) !== 0) {
+    if (tries === 0 && compareNumbers(correctNumber, Number(input.value)) !== 0) {
         submit.disabled = true;
-        resultContainer.classList.remove('hidden');
+        resultContainer.classList.remove('hidden-item');
         resultDisplay.textContent = 'lost, bummer!';
         document.getElementById('display-number').innerHTML = correctNumber;
         // another way to do the same as above (display number in index.html):
